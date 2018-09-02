@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 
 @Component({
@@ -17,7 +17,15 @@ export class RecipeListComponent implements OnInit {
     this.recipesArray.push(this.recipeObj1);
   }
 
-  recipeObj: Recipe = new Recipe('A test Recipe', 'This Simple Recipe', 'https://images.media-allrecipes.com/images/56589.png')
-  recipeObj1: Recipe = new Recipe('A test Recipe', 'This Simple Recipe', 'https://images.media-allrecipes.com/images/56589.png')
+  recipeObj: Recipe = new Recipe('Pasta', 'Pasta dish is made of sunfest pasta', 'https://images.media-allrecipes.com/images/56589.png')
+  recipeObj1: Recipe = new Recipe('Gobi Manchuri ', 'Gobi Manchuri is an indian cum chinse dish', 'http://s3.amazonaws.com/appforest_uf/f1486610188974x481748790945857800/Semi_Gravy_gobi__manchurian.jpg')
+
+  @Output() selectedRecipeForDetailDescriptionFrmC2P_customEvent = new EventEmitter<Recipe>();
+
+  onClickOfSingleRecipeItem(singleRecipeElement: Recipe) {
+    // console.log(singleRecipeElement);
+    this.selectedRecipeForDetailDescriptionFrmC2P_customEvent.emit(singleRecipeElement);
+
+  }
 
 }
