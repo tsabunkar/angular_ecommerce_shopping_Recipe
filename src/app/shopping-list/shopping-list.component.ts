@@ -9,14 +9,20 @@ import { Ingredient } from '../shared/models/ingredient.model';
 export class ShoppingListComponent implements OnInit {
 
   ingredientsArray: Ingredient[] = [];
+  // ingredirentObjectAddedProp : Ingredient;
 
   constructor() { }
 
   ngOnInit() {
-    this.ingredientsArray.push(this.ingredientObj1,this.ingredientObj2)
+    this.ingredientsArray.push(this.ingredientObj1, this.ingredientObj2)
+
   }
 
-  ingredientObj1: Ingredient = new Ingredient('Apple', 5);
-  ingredientObj2: Ingredient = new Ingredient('Banana', 10);
+  ingredientObj1: Ingredient = new Ingredient('Laptop', 100000);
+  ingredientObj2: Ingredient = new Ingredient('Keyboard', 999);
+
+  ingredirentObjectAddedFunc(event: Ingredient) {
+    this.ingredientsArray.push(event)
+  }
 
 }
